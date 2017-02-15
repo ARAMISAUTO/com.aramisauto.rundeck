@@ -81,7 +81,7 @@ class PurgeCommand extends Command
             throw new \RuntimeException(sprintf('Unsupported database - {database: "%s"}', $matches[1]));
         } else {
             // Hostname and database
-            preg_match('|jdbc:mysql://(\w+)/(\w+).*|', $contentsRundeckConfig, $matches);
+            preg_match('|jdbc:mysql://([\w+\-\.]+)/([\w+\-\.]+).*|', $contentsRundeckConfig, $matches);
             if (!count($matches)) {
                 throw new \RuntimeException(
                     sprintf(
